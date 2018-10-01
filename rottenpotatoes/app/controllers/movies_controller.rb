@@ -17,6 +17,12 @@ class MoviesController < ApplicationController
       ordering,@title_header = {:title => :asc}, 'hilite'
     when 'release_date'
       ordering,@date_header = {:release_date => :asc}, 'hilite'
+    when 'rating'
+      ordering,@rating_header = {:rating => :asc}, 'hilite'
+    when 'director'
+      ordering,@director_header = {:director=> :asc}, 'hilite'
+    when 'description'
+      ordering,@description_header = {:title=> :asc}, 'hilite'
     end
     @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
@@ -39,6 +45,8 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create!(movie_params)
+    logger.info "-=-=-=-=-=-=-=-=-Hello:"
+    logger.info @movie.inspect
     flash[:notice] = "#{@movie.title} was successfully created."
     redirect_to movies_path
   end
