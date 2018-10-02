@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-10-01T04:26:18+00:00">2018-10-01T04:26:18+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-10-02T02:42:48+00:00">2018-10-02T02:42:48+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>66</b> relevant lines. 
+    <b>74</b> relevant lines. 
     <span class="green"><b>0</b> lines covered</span> and
-    <span class="red"><b>66</b> lines missed </span>
+    <span class="red"><b>74</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -63,10 +63,10 @@
       <tr>
         <td class="strong"><a href="#205c04acdb4d87b11363710ead47f7cf9c3b56ae" class="src_link" title="app/controllers/movies_controller.rb">app/controllers/movies_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>64</td>
-        <td>51</td>
+        <td>72</td>
+        <td>59</td>
         <td>0</td>
-        <td>51</td>
+        <td>59</td>
         <td>0.0</td>
       </tr>
       
@@ -120,9 +120,9 @@
   <a name="Controllers"></a>
   <div>
     <b>2</b> files in total.
-    <b>54</b> relevant lines. 
+    <b>62</b> relevant lines. 
     <span class="green"><b>0</b> lines covered</span> and
-    <span class="red"><b>54</b> lines missed </span>
+    <span class="red"><b>62</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -151,10 +151,10 @@
       <tr>
         <td class="strong"><a href="#205c04acdb4d87b11363710ead47f7cf9c3b56ae" class="src_link" title="app/controllers/movies_controller.rb">app/controllers/movies_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>64</td>
-        <td>51</td>
+        <td>72</td>
+        <td>59</td>
         <td>0</td>
-        <td>51</td>
+        <td>59</td>
         <td>0.0</td>
       </tr>
       
@@ -430,9 +430,9 @@
     <h3>app/controllers/movies_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>51</b> relevant lines. 
+      <b>59</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>51</b> lines missed.</span>
+      <span class="red"><b>59</b> lines missed.</span>
     </div>
   </div>
   
@@ -556,37 +556,37 @@
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    when &#39;rating&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">    @all_ratings = Movie.all_ratings</code>
+          <code class="ruby">      ordering,@rating_header = {:rating =&gt; :asc}, &#39;hilite&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="22">
           
           
-          <code class="ruby">    @selected_ratings = params[:ratings] || session[:ratings] || {}</code>
+          <code class="ruby">    when &#39;director&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">      ordering,@director_header = {:director=&gt; :asc}, &#39;hilite&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">    if @selected_ratings == {}</code>
+          <code class="ruby">    when &#39;description&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
           
           
-          <code class="ruby">      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]</code>
+          <code class="ruby">      ordering,@description_header = {:title=&gt; :asc}, &#39;hilite&#39;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="26">
@@ -595,34 +595,34 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">    @all_ratings = Movie.all_ratings</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">    if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]</code>
+          <code class="ruby">    @selected_ratings = params[:ratings] || session[:ratings] || {}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">      session[:sort] = sort</code>
+          <code class="ruby">    </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">      session[:ratings] = @selected_ratings</code>
+          <code class="ruby">    if @selected_ratings == {}</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">      redirect_to :sort =&gt; sort, :ratings =&gt; @selected_ratings and return</code>
+          <code class="ruby">      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="32">
@@ -631,70 +631,70 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)</code>
+          <code class="ruby">    </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="34">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      session[:sort] = sort</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="36">
           
           
-          <code class="ruby">  def new</code>
+          <code class="ruby">      session[:ratings] = @selected_ratings</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="missed" data-hits="0" data-linenumber="37">
           
           
-          <code class="ruby">    # default: render &#39;new&#39; template</code>
+          <code class="ruby">      redirect_to :sort =&gt; sort, :ratings =&gt; @selected_ratings and return</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="38">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby">  def create</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">    @movie = Movie.create!(movie_params)</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="42">
           
           
-          <code class="ruby">    flash[:notice] = &quot;#{@movie.title} was successfully created.&quot;</code>
+          <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">    redirect_to movies_path</code>
+          <code class="ruby">    # default: render &#39;new&#39; template</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="44">
@@ -712,112 +712,160 @@
         <li class="missed" data-hits="0" data-linenumber="46">
           
           
-          <code class="ruby">  def edit</code>
+          <code class="ruby">  def create</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="47">
           
           
-          <code class="ruby">    @movie = Movie.find params[:id]</code>
+          <code class="ruby">    @movie = Movie.create!(movie_params)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="48">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    logger.info &quot;-=-=-=-=-=-=-=-=-Hello:&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="missed" data-hits="0" data-linenumber="49">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    logger.info @movie.inspect</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="50">
           
           
-          <code class="ruby">  def update</code>
+          <code class="ruby">    flash[:notice] = &quot;#{@movie.title} was successfully created.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="51">
           
           
-          <code class="ruby">    @movie = Movie.find params[:id]</code>
+          <code class="ruby">    redirect_to movies_path</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="52">
           
           
-          <code class="ruby">    @movie.update_attributes!(movie_params)</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
-          <code class="ruby">    flash[:notice] = &quot;#{@movie.title} was successfully updated.&quot;</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="54">
           
           
-          <code class="ruby">    redirect_to movie_path(@movie)</code>
+          <code class="ruby">  def edit</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="55">
           
           
+          <code class="ruby">    @movie = Movie.find params[:id]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
-          
-          <code class="ruby">  def destroy</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="58">
           
           
-          <code class="ruby">    @movie = Movie.find(params[:id])</code>
+          <code class="ruby">  def update</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="59">
           
           
-          <code class="ruby">    @movie.destroy</code>
+          <code class="ruby">    @movie = Movie.find params[:id]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="60">
           
           
-          <code class="ruby">    flash[:notice] = &quot;Movie &#39;#{@movie.title}&#39; deleted.&quot;</code>
+          <code class="ruby">    @movie.update_attributes!(movie_params)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="61">
           
           
-          <code class="ruby">    redirect_to movies_path</code>
+          <code class="ruby">    flash[:notice] = &quot;#{@movie.title} was successfully updated.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="62">
           
           
+          <code class="ruby">    redirect_to movie_path(@movie)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="63">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
+          
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="66">
+          
+          
+          <code class="ruby">    @movie = Movie.find(params[:id])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="67">
+          
+          
+          <code class="ruby">    @movie.destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
+          
+          <code class="ruby">    flash[:notice] = &quot;Movie &#39;#{@movie.title}&#39; deleted.&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="69">
+          
+          
+          <code class="ruby">    redirect_to movies_path</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="70">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="72">
           
           
           <code class="ruby">end</code>

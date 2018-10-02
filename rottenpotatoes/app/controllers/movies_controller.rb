@@ -9,6 +9,40 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
+  
+  def dsearch
+    if params[:id].eql? nil; redirect_to "/movies"; return ; end
+    @movie = Movie.find(params[:id]) 
+    if @movie.director.eql? "" or @movie.director.nil?; redirect_to "/movies"; return ; end
+    @movies = Movie.where( :director => @movie.director )
+    if @movies.nil?; flash[:notice] = "No such movie"; redirect_to movies_path end 
+    
+    sort = params[:sort] || session[:sort]
+    case sort
+    when 'title'
+      ordering,@title_header = {:title => :asc}, 'hilite'
+    when 'release_date'
+      ordering,@date_header = {:release_date => :asc}, 'hilite'
+    when 'rating'
+      ordering,@rating_header = {:rating => :asc}, 'hilite'
+    when 'director'
+      ordering,@director_header = {:director=> :asc}, 'hilite'
+    when 'description'
+      ordering,@description_header = {:title=> :asc}, 'hilite'
+    end
+    @all_ratings = Movie.all_ratings
+    @selected_ratings = params[:ratings] || session[:ratings] || {}
+    
+    if @selected_ratings == {}
+      @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
+    end
+    
+    if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
+      session[:sort] = sort
+      session[:ratings] = @selected_ratings
+      redirect_to :sort => sort, :ratings => @selected_ratings and return
+    end
+  end
 
   def index
     sort = params[:sort] || session[:sort]
@@ -45,8 +79,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create!(movie_params)
-    logger.info "-=-=-=-=-=-=-=-=-Hello:"
-    logger.info @movie.inspect
     flash[:notice] = "#{@movie.title} was successfully created."
     redirect_to movies_path
   end

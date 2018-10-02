@@ -51,6 +51,14 @@ table#movies th, table#movies td {
 table#movies th.hilite {
   background-color: yellow;
 }
+
+table#movies.dsearch th {
+  background-color: Coral;
+}
+table#movies.dsearch th.hilite {
+  background-color: SteelBlue;
+}
+
 #notice #warning {
   background: rosybrown;
   margin: 1em 0;
