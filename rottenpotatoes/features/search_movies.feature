@@ -12,6 +12,7 @@ Background: movies in database
   | Blade Runner | PG     | Ridley Scott |   1982-06-25 |
   | Alien        | R      |              |   1979-05-25 |
   | THX-1138     | R      | George Lucas |   1971-03-11 |
+  | Zoolander    | G      | Ben Stiller  |   2001-09-28 |
  
 Scenario: add director to existing movie
   When I go to the edit page for "Alien"
@@ -32,3 +33,33 @@ Scenario: can't find similar movies if we don't know director (sad path)
   When  I follow "Find Movies With Same Director"
   Then  I should be on the home page
   And   I should see "'Alien' has no director info"
+
+Scenario: Sorting
+  Given I go to the home page
+  When I follow "Movie Title"
+  Then the first movie with respect to "title" should be "Alien"
+  When I follow "Rating"
+  Then the first movie with respect to "rating" should be "Zoolander"
+  When I follow "Release Date"
+  Then the first movie with respect to "date" should be "THX-1138"
+  When I follow "Director"
+  Then the first movie with respect to "director" should be "Alien"
+  When I follow "More Info"
+  Then the first movie with respect to "description" should be "Alien"
+  
+Scenario: Create Movie
+  Given I am on the home page
+  When I follow "Add new movie"
+  And I fill in "Title" with "Zoolander 2"
+  And I fill in "Director" with "Ben Joneson"
+  And I press "Save Changes"
+  Then I should be on the home page
+  Then I should see "Zoolander 2 was successfully created."
+  And I should see "Ben Joneson"
+  
+Scenario: Delete Movie
+  Given I am on the details page for "Zoolander"
+  And I press "Delete"
+  Then I should see "Movie 'Zoolander' deleted."
+  And I should be on the movies page
+  And I should not see "Ben Stiller"
